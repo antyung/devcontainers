@@ -20,7 +20,7 @@ permissions:
 
 jobs:
   build-push:
-    runs-on: debian-latest
+    runs-on: ubuntu-latest
     steps:
 
       - name: 'checkout'
