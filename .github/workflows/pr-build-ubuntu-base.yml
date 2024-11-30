@@ -41,7 +41,7 @@ jobs:
         uses: docker/bake-action@v5
         with:
           targets: test
-          workdir: ./${{env.IMAGE}}
+          workdir: ./src/images/${{env.IMAGE}}
 
       - name: 'dependabot metadata'
         id: metadata
