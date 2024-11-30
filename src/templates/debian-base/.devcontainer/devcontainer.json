@@ -1,0 +1,19 @@
+// For format details, see https://containers.dev/implementors/json_reference/
+{
+  "name": "debian-base",
+  "dockerComposeFile": [
+    "./docker-compose.yml"
+  ],
+  "service": "devcontainer-debian-base",
+  "remoteUser": "vscode",
+  "shutdownAction": "stopCompose",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      },
+    "extensions": []
+    }
+  },
+  "workspaceFolder": "/home/vscode/debian-base"
+}

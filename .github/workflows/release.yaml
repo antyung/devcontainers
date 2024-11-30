@@ -1,0 +1,61 @@
+---
+name: 'release devcontainer'
+
+on:
+  workflow_dispatch:
+
+env:
+  GH_TOKEN: ${{secrets.GH_TOKEN}}
+
+jobs:
+  deploy:
+    if: ${{github.ref == 'refs/heads/main'}}
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: write
+      pull-requests: write
+    steps:
+
+      - name: 'checkout'
+        uses: actions/checkout@v4
+        with:
+          show-progress: false
+
+      - name: 'publish templates'
+        uses: devcontainers/action@v1
+        with:
+          publish-templates: "true"
+          base-path-to-templates: "./src/templates"
+          generate-docs: "true"
+        env:
+          GITHUB_TOKEN: ${{env.GH_TOKEN}}
+
+      - name: 'publish features'
+        uses: devcontainers/action@v1
+        with:
+          publish-features: "true"
+          base-path-to-features: "./src/features"
+          generate-docs: "true"
+        env:
+          GITHUB_TOKEN: ${{env.GH_TOKEN}}
+
+      - name: 'create pr for documentation'
+        id: push_image_info
+        env:
+          GITHUB_TOKEN: ${{env.GH_TOKEN}}
+        run: |
+          set -e
+          echo "Start."
+          git config --global user.email github-actions[bot]@users.noreply.github.com
+          git config --global user.name github-actions[bot]
+          git config pull.rebase false
+          branch=automated-documentation-update-$GITHUB_RUN_ID
+          git checkout -b $branch
+          message='Automated documentation update'
+          git add */**/README.md
+          git commit -m 'Automated documentation update [skip ci]' || export NO_UPDATES=true
+          if [ "$NO_UPDATES" != "true" ] ; then
+              git push origin "$branch"
+              gh pr create --title "$message" --body "$message"
+          fi

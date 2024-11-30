@@ -1,0 +1,8 @@
+{
+    "id": "terraform",
+    "version": "1.0.0",
+    "name": "terraform",
+    "description": "",
+    "documentationURL": "https://github.com/antyung/devcontainers/blob/main/src/features/terraform/README.md",
+    "licenseURL": "https://github.com/antyung/devcontainers/blob/main/LICENSE"
+}

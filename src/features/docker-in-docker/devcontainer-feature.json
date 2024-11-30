@@ -1,0 +1,20 @@
+{
+    "id": "docker-in-docker",
+    "version": "1.0.0",
+    "name": "docker-in-docker",
+    "description": "",
+    "documentationURL": "https://github.com/antyung/devcontainers/blob/main/src/features/docker-in-docker/README.md",
+    "licenseURL": "https://github.com/antyung/devcontainers/blob/main/LICENSE",
+    "entrypoint": "/usr/local/share/docker-init.sh",
+    "privileged": true,
+    "containerEnv": {
+        "DOCKER_BUILDKIT": "1"
+    },
+    "mounts": [
+        {
+            "source": "dind-var-lib-docker-${devcontainerId}",
+            "target": "/var/lib/docker",
+            "type": "volume"
+        }
+    ]
+}

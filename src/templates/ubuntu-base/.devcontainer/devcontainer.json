@@ -1,0 +1,19 @@
+// For format details, see https://containers.dev/implementors/json_reference/
+{
+  "name": "ubuntu-base",
+  "dockerComposeFile": [
+    "./docker-compose.yml"
+  ],
+  "service": "devcontainer-ubuntu-base",
+  "remoteUser": "vscode",
+  "shutdownAction": "stopCompose",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      },
+    "extensions": []
+    }
+  },
+  "workspaceFolder": "/home/vscode/ubuntu-base"
+}

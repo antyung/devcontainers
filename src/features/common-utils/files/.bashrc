@@ -1,0 +1,6 @@
+HISTFILE=~/.bash_history
+HISTSIZE=10000
+HISTFILESIZE=10000
+PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+
+shopt -s histappend

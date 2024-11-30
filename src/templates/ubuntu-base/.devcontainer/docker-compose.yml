@@ -1,0 +1,11 @@
+---
+services:
+  devcontainer-ubuntu-base:
+    container_name: devcontainer-ubuntu-base
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - ..:/home/vscode/ubuntu-base:cached
+    user: vscode
+    tty: true
