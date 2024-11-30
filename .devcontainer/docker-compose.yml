@@ -1,0 +1,11 @@
+---
+services:
+  devcontainer-devcontainers:
+    container_name: devcontainer-devcontainers
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - ..:/home/vscode/devcontainers:cached
+    user: vscode
+    tty: true
