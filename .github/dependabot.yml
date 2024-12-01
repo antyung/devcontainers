@@ -2,11 +2,16 @@
 version: 2
 
 registries:
-  dockerhub:
+  dockerhub-registry:
     type: docker-registry
     url: registry.hub.docker.com
     username: ${{secrets.DOCKERHUB_USERNAME}}
     password: ${{secrets.DOCKERHUB_PASSWORD}}
+  github-registry:
+    type: docker-registry
+    url: https://ghcr.io
+    username: ${{github.actor}}
+    password: ${{secrets.GH_TOKEN}}
 
 updates:
   - package-ecosystem: github-actions
@@ -17,6 +22,26 @@ updates:
       prefix: "ci"
       include: "scope"
 
+  - package-ecosystem: devcontainers
+    directory: "/"
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+    registries:
+      - github-registry
+
+  - package-ecosystem: docker
+    directory: "/.devcontainer"
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+    registries:
+      - github-registry
+
   - package-ecosystem: docker
     directories: 
       - "/src/images/debian-base"
@@ -26,7 +51,7 @@ updates:
       prefix: "chore"
       include: "scope"
     registries:
-      - dockerhub
+      - dockerhub-registry
 
   - package-ecosystem: docker
     directories: 
@@ -37,4 +62,4 @@ updates:
       prefix: "chore"
       include: "scope"
     registries:
-      - dockerhub
+      - dockerhub-registry
