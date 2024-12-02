@@ -1,8 +1,7 @@
-// For format details, see https://containers.dev/implementors/json_reference/
 {
   "name": "debian-base",
   "dockerComposeFile": [
-    "./docker-compose.yml"
+    "./compose.yml"
   ],
   "service": "devcontainer-debian-base",
   "remoteUser": "vscode",

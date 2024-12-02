@@ -1,9 +1,9 @@
 {
-    "id": "ubuntu-base",
-    "version": "1.0.0",
-    "name": "ubuntu-base",
-    "description": "",
-    "documentationURL": "https://github.com/antyung/devcontainers/blob/main/src/templates/ubuntu-base/README.md",
-    "licenseURL": "https://github.com/antyung/devcontainers/blob/main/LICENSE",
-    "platforms": ["amd64", "arm64"]
+  "id": "ubuntu-base",
+  "version": "1.0.0",
+  "name": "ubuntu-base",
+  "description": "",
+  "documentationURL": "https://github.com/antyung/devcontainers/blob/main/src/templates/ubuntu-base/README.md",
+  "licenseURL": "https://github.com/antyung/devcontainers/blob/main/LICENSE",
+  "platforms": ["amd64", "arm64"]
 }
