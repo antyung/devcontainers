@@ -17,9 +17,6 @@ function install_apt_ubuntu() {
     sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
     sudo apt-get update
     sudo apt-get install -y --no-install-recommends docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-    apt-get autoremove -y
-    apt-get clean -y
-    rm -rf /var/lib/apt/lists/*
 }
 
 function install_apt_debian() {
@@ -35,9 +32,6 @@ function install_apt_debian() {
     sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
     sudo apt-get update
     sudo apt-get install -y --no-install-recommends docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-    apt-get autoremove -y
-    apt-get clean -y
-    rm -rf /var/lib/apt/lists/*
 }
 
 function setup_docker_init() {

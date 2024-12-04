@@ -1,6 +1,6 @@
 {
   "id": "aws-cli",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "name": "aws-cli",
   "description": "",
   "documentationURL": "https://github.com/antyung/devcontainers/blob/main/src/features/aws-cli/README.md",

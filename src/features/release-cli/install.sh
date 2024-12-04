@@ -14,9 +14,6 @@ function install_apt() {
     $(which sudo) apt-get update
     export DEBIAN_FRONTEND=noninteractive
     $(which sudo) apt-get install -y --no-install-recommends sudo curl ca-certificates jq
-    apt-get autoremove -y
-    apt-get clean -y
-    rm -rf /var/lib/apt/lists/*
 }
 
 function install_release_cli() {

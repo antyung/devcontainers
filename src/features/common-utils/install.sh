@@ -10,9 +10,6 @@ function install() {
     $(which sudo) apt-get update
     export DEBIAN_FRONTEND=noninteractive
     $(which sudo) apt-get install -y --no-install-recommends "$@"
-    apt-get autoremove -y
-    apt-get clean -y
-    rm -rf /var/lib/apt/lists/*
 }
 
 function install_apt() {
