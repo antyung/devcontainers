@@ -13,6 +13,7 @@ function install_miniconda() {
     wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /opt/miniconda3/miniconda.sh
     bash /opt/miniconda3/miniconda.sh -b -u -p /opt/miniconda3
     rm /opt/miniconda3/miniconda.sh
+    export PATH="/opt/miniconda3/bin:/opt/miniconda3/sbin:$PATH"
 }
 
 function main() {

@@ -1,6 +1,6 @@
 {
   "id": "miniconda",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "name": "miniconda",
   "description": "",
   "documentationURL": "https://github.com/antyung/devcontainers/blob/main/src/features/miniconda/README.md",
