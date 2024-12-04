@@ -43,7 +43,7 @@ updates:
       - github-registry
 
   - package-ecosystem: docker
-    directories: 
+    directories:
       - "/src/images/debian-base"
     schedule:
       interval: daily
@@ -54,7 +54,18 @@ updates:
       - dockerhub-registry
 
   - package-ecosystem: docker
-    directories: 
+    directories:
+      - "/src/images/python-base"
+    schedule:
+      interval: daily
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+    registries:
+      - dockerhub-registry
+
+  - package-ecosystem: docker
+    directories:
       - "/src/images/ubuntu-base"
     schedule:
       interval: daily

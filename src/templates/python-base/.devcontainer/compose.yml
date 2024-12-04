@@ -1,0 +1,11 @@
+---
+services:
+  devcontainer-python-base:
+    container_name: devcontainer-python-base
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - ..:/home/vscode/python-base:cached
+    user: vscode
+    tty: true

@@ -1,0 +1,18 @@
+{
+  "name": "python-base",
+  "dockerComposeFile": [
+    "./compose.yml"
+  ],
+  "service": "devcontainer-python-base",
+  "remoteUser": "vscode",
+  "shutdownAction": "stopCompose",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      },
+    "extensions": []
+    }
+  },
+  "workspaceFolder": "/home/vscode/python-base"
+}

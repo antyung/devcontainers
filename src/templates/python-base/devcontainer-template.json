@@ -1,0 +1,9 @@
+{
+  "id": "python-base",
+  "version": "1.0.0",
+  "name": "python-base",
+  "description": "",
+  "documentationURL": "https://github.com/antyung/devcontainers/blob/main/src/templates/python-base/README.md",
+  "licenseURL": "https://github.com/antyung/devcontainers/blob/main/LICENSE",
+  "platforms": ["amd64", "arm64"]
+}
