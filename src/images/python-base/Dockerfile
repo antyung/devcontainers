@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM docker.io/antyung/python:3.13.0-bullseye AS base
+FROM docker.io/antyung/python:3.13.1-bullseye AS base
 
 ARG USER=vscode
 ARG USER_ID=1000
