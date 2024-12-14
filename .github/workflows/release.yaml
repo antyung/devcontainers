@@ -10,6 +10,7 @@ env:
   GH_TOKEN: ${{secrets.GH_TOKEN}}
 
 permissions:
+  id-token: write
   packages: write
   contents: write
   pull-requests: write
