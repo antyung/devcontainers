@@ -25,7 +25,7 @@ jobs:
           show-progress: false
 
       - name: 'configure aws credentials'
-        uses: aws-actions/configure-aws-credentials@4
+        uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: ${{env.AWS_ROLE_ARN}}
           role-session-name: aws-oidc-${{github.repository}}-${{github.run_id}}
