@@ -1,16 +1,16 @@
 ---
-name: 'build ubuntu-base'
+name: 'build python'
 
 on:
   push:
     branches:
       - main
     paths:
-      - 'src/images/ubuntu-base/**'
+      - 'src/images/python/**'
   workflow_dispatch:
 
 env:
-  IMAGE: ubuntu-base
+  IMAGE: python
   AWS_DEFAULT_REGION: ${{secrets.AWS_DEFAULT_REGION}}
   AWS_ROLE_ARN: ${{secrets.AWS_ROLE_ARN}}
   GH_TOKEN: ${{secrets.GH_TOKEN}}

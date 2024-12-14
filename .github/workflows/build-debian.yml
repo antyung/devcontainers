@@ -1,16 +1,16 @@
 ---
-name: 'build debian-base'
+name: 'build debian'
 
 on:
   push:
     branches:
       - main
     paths:
-      - 'src/images/debian-base/**'
+      - 'src/images/debian/**'
   workflow_dispatch:
 
 env:
-  IMAGE: debian-base
+  IMAGE: debian
   AWS_DEFAULT_REGION: ${{secrets.AWS_DEFAULT_REGION}}
   AWS_ROLE_ARN: ${{secrets.AWS_ROLE_ARN}}
   GH_TOKEN: ${{secrets.GH_TOKEN}}

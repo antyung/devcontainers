@@ -1,19 +1,19 @@
 ---
-name: 'pr-build python-base'
+name: 'pr-build python'
 
 on:
   pull_request:
     branches:
       - main
     paths:
-      - 'src/images/python-base/**'
+      - 'src/images/python/**'
     types:
       - opened
       - synchronize
       - reopened
 
 env:
-  IMAGE: python-base
+  IMAGE: python
   GH_TOKEN: ${{secrets.GH_TOKEN}}
 
 permissions:

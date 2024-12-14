@@ -3,7 +3,7 @@ variable "GITHUB_USERNAME" {
 }
 
 variable "IMAGE" {
-  default = "python-base"
+  default = "debian"
 }
 
 variable "TAG" {
@@ -52,7 +52,7 @@ target "push" {
   tags = [
     "ghcr.io/${GITHUB_USERNAME}/devcontainers/${IMAGE}:latest",
     "ghcr.io/${GITHUB_USERNAME}/devcontainers/${IMAGE}:${TAG}",
-    "public.ecr.aws/w2u0w5i6/devcontainer/${IMAGE}:latest",
-    "public.ecr.aws/w2u0w5i6/devcontainer/${IMAGE}:${TAG}",
+    "public.ecr.aws/w2u0w5i6/devcontainer/base/${IMAGE}:latest",
+    "public.ecr.aws/w2u0w5i6/devcontainer/base/${IMAGE}:${TAG}",
   ]
 }
