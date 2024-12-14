@@ -44,7 +44,7 @@ updates:
 
   - package-ecosystem: docker
     directories:
-      - "/src/images/debian-base"
+      - "/src/images/debian"
     schedule:
       interval: daily
     commit-message:
@@ -55,7 +55,7 @@ updates:
 
   - package-ecosystem: docker
     directories:
-      - "/src/images/python-base"
+      - "/src/images/python"
     schedule:
       interval: daily
     commit-message:
@@ -66,7 +66,7 @@ updates:
 
   - package-ecosystem: docker
     directories:
-      - "/src/images/ubuntu-base"
+      - "/src/images/ubuntu"
     schedule:
       interval: daily
     commit-message:
