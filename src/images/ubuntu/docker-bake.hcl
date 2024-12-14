@@ -1,3 +1,11 @@
+variable "AWS_ECR_PUBLIC_URI" {
+  default = "public.ecr.aws/w2u0w5i6"
+}
+
+variable "GROUP" {
+  default = "devcontainer/base"
+}
+
 variable "GITHUB_USERNAME" {
   default = "antyung"
 }
@@ -52,7 +60,7 @@ target "push" {
   tags = [
     "ghcr.io/${GITHUB_USERNAME}/devcontainers/${IMAGE}:latest",
     "ghcr.io/${GITHUB_USERNAME}/devcontainers/${IMAGE}:${TAG}",
-    "public.ecr.aws/w2u0w5i6/devcontainer/base/${IMAGE}:latest",
-    "public.ecr.aws/w2u0w5i6/devcontainer/base/${IMAGE}:${TAG}",
+    "${AWS_ECR_PUBLIC_URI}/${GROUP}/${IMAGE}:latest",
+    "${AWS_ECR_PUBLIC_URI}/${GROUP}/${IMAGE}:${TAG}",
   ]
 }

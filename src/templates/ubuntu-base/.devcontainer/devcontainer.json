@@ -1,11 +1,10 @@
 {
   "name": "ubuntu-base",
-  "dockerComposeFile": [
-    "./compose.yml"
-  ],
+  "dockerComposeFile": ["./compose.yml"],
   "service": "devcontainer-ubuntu-base",
   "remoteUser": "vscode",
   "shutdownAction": "stopCompose",
+  "workspaceFolder": "/home/vscode/ubuntu-base",
   "customizations": {
     "vscode": {
       "settings": {
@@ -13,6 +12,5 @@
       },
     "extensions": []
     }
-  },
-  "workspaceFolder": "/home/vscode/ubuntu-base"
+  }
 }
