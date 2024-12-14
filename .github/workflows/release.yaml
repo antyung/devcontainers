@@ -28,7 +28,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: ${{env.AWS_ROLE_ARN}}
-          role-session-name: aws-oidc-${{github.repository | replace('/', '-')}}-${{github.run_id}}
+          role-session-name: aws-oidc-${{github.repository//\//-}}-${{github.run_id}}
           aws-region: ${{env.AWS_DEFAULT_REGION}}
 
       - name: 'publish templates'
