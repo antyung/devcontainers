@@ -45,6 +45,7 @@ jobs:
           base-path-to-templates: "./src/templates"
           generate-docs: "true"
           oci-registry-for-templates: "public.ecr.aws/w2u0w5i6/devcontainer/template"
+          features-namespace: ""
         env:
           GITHUB_TOKEN: ${{env.GH_TOKEN}}
 
@@ -55,6 +56,7 @@ jobs:
           base-path-to-features: "./src/features"
           generate-docs: "true"
           oci-registry: "public.ecr.aws/w2u0w5i6/devcontainer/feature"
+          templates-namespace: ""
         env:
           GITHUB_TOKEN: ${{env.GH_TOKEN}}
 
