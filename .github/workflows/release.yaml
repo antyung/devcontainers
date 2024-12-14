@@ -31,6 +31,12 @@ jobs:
           role-session-name: aws-oidc-${{github.repository.name}}-${{github.run_id}}
           aws-region: ${{env.AWS_DEFAULT_REGION}}
 
+      - name: 'login to amazon ecr public'
+        id: login-ecr-public
+        uses: aws-actions/amazon-ecr-login@v2
+        with:
+          registry-type: public
+
       - name: 'publish templates'
         uses: devcontainers/action@v1
         with:
