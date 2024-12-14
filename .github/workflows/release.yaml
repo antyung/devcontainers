@@ -44,8 +44,8 @@ jobs:
           publish-templates: "true"
           base-path-to-templates: "./src/templates"
           generate-docs: "true"
-          oci-registry-for-templates: "public.ecr.aws/w2u0w5i6/devcontainer/template"
-          features-namespace: ""
+          oci-registry-for-templates: "public.ecr.aws/w2u0w5i6"
+          features-namespace: "devcontainer/template"
         env:
           GITHUB_TOKEN: ${{env.GH_TOKEN}}
 
@@ -55,8 +55,8 @@ jobs:
           publish-features: "true"
           base-path-to-features: "./src/features"
           generate-docs: "true"
-          oci-registry: "public.ecr.aws/w2u0w5i6/devcontainer/feature"
-          templates-namespace: ""
+          oci-registry: "public.ecr.aws/w2u0w5i6"
+          templates-namespace: "devcontainer/feature"
         env:
           GITHUB_TOKEN: ${{env.GH_TOKEN}}
 
