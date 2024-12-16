@@ -44,25 +44,8 @@ updates:
   - package-ecosystem: docker
     directories:
       - "/src/images/debian"
-    schedule:
-      interval: daily
-    commit-message:
-      prefix: "chore"
-      include: "scope"
-    registries: ["dockerhub-registry"]
-
-  - package-ecosystem: docker
-    directories:
+      - "/src/images/node"
       - "/src/images/python"
-    schedule:
-      interval: daily
-    commit-message:
-      prefix: "chore"
-      include: "scope"
-    registries: ["dockerhub-registry"]
-
-  - package-ecosystem: docker
-    directories:
       - "/src/images/ubuntu"
     schedule:
       interval: daily

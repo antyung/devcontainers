@@ -1,0 +1,16 @@
+{
+  "name": "node-base",
+  "dockerComposeFile": ["./compose.yml"],
+  "service": "devcontainer-node-base",
+  "remoteUser": "vscode",
+  "shutdownAction": "stopCompose",
+  "workspaceFolder": "/home/vscode/node-base",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      },
+    "extensions": []
+    }
+  }
+}
