@@ -1,3 +1,3 @@
 # syntax=docker/dockerfile:1
 
-FROM ghcr.io/antyung/devcontainers/ubuntu:jammy
+FROM public.ecr.aws/w2u0w5i6/devcontainer/base/ubuntu:jammy

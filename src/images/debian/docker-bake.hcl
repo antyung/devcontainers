@@ -45,8 +45,8 @@ target "build" {
   inherits = ["settings"]
   output   = ["type=docker"]
   tags = [
-    "ghcr.io/${GITHUB_USERNAME}/devcontainers/${IMAGE}:latest",
-    "ghcr.io/${GITHUB_USERNAME}/devcontainers/${IMAGE}:${TAG}",
+    "${AWS_ECR_PUBLIC_URI}/${GROUP}/${IMAGE}:latest",
+    "${AWS_ECR_PUBLIC_URI}/${GROUP}/${IMAGE}:${TAG}",
   ]
 }
 
@@ -58,8 +58,6 @@ target "push" {
     "linux/arm64",
   ]
   tags = [
-    "ghcr.io/${GITHUB_USERNAME}/devcontainers/${IMAGE}:latest",
-    "ghcr.io/${GITHUB_USERNAME}/devcontainers/${IMAGE}:${TAG}",
     "${AWS_ECR_PUBLIC_URI}/${GROUP}/${IMAGE}:latest",
     "${AWS_ECR_PUBLIC_URI}/${GROUP}/${IMAGE}:${TAG}",
   ]
