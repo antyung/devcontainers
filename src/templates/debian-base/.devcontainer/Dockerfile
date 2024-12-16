@@ -1,3 +1,3 @@
 # syntax=docker/dockerfile:1
 
-FROM ghcr.io/antyung/devcontainers/debian-base:bullseye
+FROM ghcr.io/antyung/devcontainers/debian:bullseye

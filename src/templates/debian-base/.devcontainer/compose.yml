@@ -4,7 +4,6 @@ services:
     container_name: devcontainer-debian-base
     build:
       context: .
-      dockerfile: ./Dockerfile
     volumes:
       - ..:/home/vscode/debian-base:cached
     user: vscode

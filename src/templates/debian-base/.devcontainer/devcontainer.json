@@ -1,11 +1,10 @@
 {
   "name": "debian-base",
-  "dockerComposeFile": [
-    "./compose.yml"
-  ],
+  "dockerComposeFile": ["./compose.yml"],
   "service": "devcontainer-debian-base",
   "remoteUser": "vscode",
   "shutdownAction": "stopCompose",
+  "workspaceFolder": "/home/vscode/debian-base",
   "customizations": {
     "vscode": {
       "settings": {
@@ -13,6 +12,5 @@
       },
     "extensions": []
     }
-  },
-  "workspaceFolder": "/home/vscode/debian-base"
+  }
 }
