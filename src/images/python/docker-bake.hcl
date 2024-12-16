@@ -1,11 +1,3 @@
-variable "AWS_ECR_PUBLIC_URI" {
-  default = "public.ecr.aws/w2u0w5i6"
-}
-
-variable "GROUP" {
-  default = "devcontainer/base"
-}
-
 variable "GITHUB_USERNAME" {
   default = "antyung"
 }
@@ -45,8 +37,8 @@ target "build" {
   inherits = ["settings"]
   output   = ["type=docker"]
   tags = [
-    "${AWS_ECR_PUBLIC_URI}/${GROUP}/${IMAGE}:latest",
-    "${AWS_ECR_PUBLIC_URI}/${GROUP}/${IMAGE}:${TAG}",
+    "ghcr.io/${GITHUB_USERNAME}/devcontainers/${IMAGE}:latest",
+    "ghcr.io/${GITHUB_USERNAME}/devcontainers/${IMAGE}:${TAG}",
   ]
 }
 
@@ -58,7 +50,7 @@ target "push" {
     "linux/arm64",
   ]
   tags = [
-    "${AWS_ECR_PUBLIC_URI}/${GROUP}/${IMAGE}:latest",
-    "${AWS_ECR_PUBLIC_URI}/${GROUP}/${IMAGE}:${TAG}",
+    "ghcr.io/${GITHUB_USERNAME}/devcontainers/${IMAGE}:latest",
+    "ghcr.io/${GITHUB_USERNAME}/devcontainers/${IMAGE}:${TAG}",
   ]
 }
