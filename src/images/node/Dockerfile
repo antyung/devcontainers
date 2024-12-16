@@ -3,8 +3,8 @@
 FROM public.ecr.aws/w2u0w5i6/base/node:23.4.0-bookworm AS base
 
 ARG USER=vscode
-ARG USER_ID=1000
-ARG PRIMARY_GROUP_ID=1000
+ARG USER_ID=1001
+ARG PRIMARY_GROUP_ID=1001
 ARG HOME=/home/$USER
 ENV HOME=/home/$USER \
     SHELL=/bin/bash
