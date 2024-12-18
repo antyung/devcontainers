@@ -1,8 +1,13 @@
 {
   "id": "aws-cli",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "name": "aws-cli",
   "description": "",
   "documentationURL": "https://github.com/antyung/devcontainers/blob/main/src/features/aws-cli/README.md",
-  "licenseURL": "https://github.com/antyung/devcontainers/blob/main/LICENSE"
+  "licenseURL": "https://github.com/antyung/devcontainers/blob/main/LICENSE",
+  "containerEnv": {
+    "AWS_ACCESS_KEY_ID": "${localEnv:AWS_ACCESS_KEY_ID}",
+    "AWS_SECRET_ACCESS_KEY": "${localEnv:AWS_SECRET_ACCESS_KEY}",
+    "AWS_DEFAULT_REGION": "${localEnv:AWS_DEFAULT_REGION}"
+  }
 }

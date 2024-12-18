@@ -28,6 +28,17 @@ function install_aws_cli() {
     unzip ./awscliv2.zip
     sudo ./aws/install
     rm -rf ./awscliv2.zip ./awscliv2.sig ./public-key ./aws
+    mkdir -p "${HOME}/.aws"
+    echo "[default]" > "${HOME}/.aws/credentials"
+    if [[ -n "${AWS_ACCESS_KEY_ID}" ]]; then
+    echo "aws_access_key_id = ${AWS_ACCESS_KEY_ID}" >> "${HOME}/.aws/credentials"
+    fi
+    if [[ -n "${AWS_SECRET_ACCESS_KEY}" ]]; then
+    echo "aws_secret_access_key = ${AWS_SECRET_ACCESS_KEY}" >> "${HOME}/.aws/credentials"
+    fi
+    if [[ -n "${AWS_DEFAULT_REGION}" ]]; then
+    echo "region = ${AWS_DEFAULT_REGION}" >> "${HOME}/.aws/credentials"
+    fi
 }
 
 function main() {
