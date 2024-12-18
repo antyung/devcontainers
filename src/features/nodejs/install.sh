@@ -19,8 +19,8 @@ function install_apt() {
 }
 
 function install_node() {
-    wget -q "https://nodejs.org/dist/v${VERSION}/node-v${VERSION}-${ARCH}.tar.xz" -P /tmp
-    tar -xvf "/tmp/node-v${VERSION}-${ARCH}.tar.xz" -C /tmp
+    wget -q "https://nodejs.org/dist/v${VERSION}/node-v${VERSION}-${ARCH}.tar.xz" -P "/tmp/node-v${VERSION}-${ARCH}.tar.xz"
+    tar -xvf "/tmp/node-v${VERSION}-${ARCH}.tar.xz" -C "/tmp/node-v${VERSION}-${ARCH}"
     mv /tmp/node-v${VERSION}-${ARCH}/bin/* /usr/local/bin
     mv /tmp/node-v${VERSION}-${ARCH}/lib/* /usr/local/lib
     rm -rf "/tmp/node-v${VERSION}-${ARCH}" "/tmp/node-v${VERSION}-${ARCH}.tar.xz"
