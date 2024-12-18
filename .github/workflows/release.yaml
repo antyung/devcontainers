@@ -5,12 +5,9 @@ on:
   workflow_dispatch:
 
 env:
-  AWS_DEFAULT_REGION: ${{secrets.AWS_DEFAULT_REGION}}
-  AWS_ROLE_ARN: ${{secrets.AWS_ROLE_ARN}}
   GH_TOKEN: ${{secrets.GH_TOKEN}}
 
 permissions:
-  id-token: write
   packages: write
   contents: write
   pull-requests: write
@@ -25,27 +22,12 @@ jobs:
         with:
           show-progress: false
 
-      - name: 'configure aws credentials'
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          role-to-assume: ${{env.AWS_ROLE_ARN}}
-          role-session-name: aws-oidc-${{github.repository.name}}-${{github.run_id}}
-          aws-region: ${{env.AWS_DEFAULT_REGION}}
-
-      - name: 'login to amazon ecr public'
-        id: login-ecr-public
-        uses: aws-actions/amazon-ecr-login@v2
-        with:
-          registry-type: public
-
       - name: 'publish templates'
         uses: devcontainers/action@v1
         with:
           publish-templates: "true"
           base-path-to-templates: "./src/templates"
           generate-docs: "true"
-          # oci-registry-for-templates: "public.ecr.aws/w2u0w5i6"
-          # templates-namespace: "devcontainer/template"
         env:
           GITHUB_TOKEN: ${{env.GH_TOKEN}}
 
@@ -55,8 +37,6 @@ jobs:
           publish-features: "true"
           base-path-to-features: "./src/features"
           generate-docs: "true"
-          # oci-registry: "public.ecr.aws/w2u0w5i6"
-          # features-namespace: "devcontainer/feature"
         env:
           GITHUB_TOKEN: ${{env.GH_TOKEN}}
 
