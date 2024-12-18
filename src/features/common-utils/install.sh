@@ -83,7 +83,7 @@ function setup_files() {
     fi
 
     mkdir -p "${HOME}/.vscode"
-    cat "${FEATURE_DIR}/.vscode/settings.json" >> "${HOME}/.vscode/settings.json"
+    cat "${FEATURE_DIR}/files/.vscode/settings.json" >> "${HOME}/.vscode/settings.json"
 }
 
 function main() {
