@@ -1,8 +1,11 @@
 {
   "id": "devcontainer-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "devcontainer-cli",
   "description": "",
   "documentationURL": "https://github.com/antyung/devcontainers/blob/main/src/features/devcontainer-cli/README.md",
-  "licenseURL": "https://github.com/antyung/devcontainers/blob/main/LICENSE"
+  "licenseURL": "https://github.com/antyung/devcontainers/blob/main/LICENSE",
+  "installsAfter": [
+    "ghcr.io/antyung/devcontainers/nodejs:latest"
+  ]
 }

@@ -1,8 +1,13 @@
 {
   "id": "aws-cdk",
-  "version": "1.3.0",
+  "version": "1.5.0",
   "name": "aws-cdk",
   "description": "",
   "documentationURL": "https://github.com/antyung/devcontainers/blob/main/src/features/aws-cdk/README.md",
-  "licenseURL": "https://github.com/antyung/devcontainers/blob/main/LICENSE"
+  "licenseURL": "https://github.com/antyung/devcontainers/blob/main/LICENSE",
+  "installsAfter": [
+    "ghcr.io/antyung/devcontainers/common-utils:latest",
+    "ghcr.io/antyung/devcontainers/aws-cli:latest",
+    "ghcr.io/antyung/devcontainers/nodejs:latest"
+  ]
 }
