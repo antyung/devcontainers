@@ -6,8 +6,7 @@
   "documentationURL": "https://github.com/antyung/devcontainers/blob/main/src/features/aws-cdk/README.md",
   "licenseURL": "https://github.com/antyung/devcontainers/blob/main/LICENSE",
   "installsAfter": [
-    "ghcr.io/antyung/devcontainers/common-utils:latest",
-    "ghcr.io/antyung/devcontainers/aws-cli:latest",
-    "ghcr.io/antyung/devcontainers/nodejs:latest"
+    "ghcr.io/antyung/devcontainers/nodejs:latest",
+    "ghcr.io/antyung/devcontainers/aws-cli:latest"
   ]
 }
