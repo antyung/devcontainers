@@ -23,7 +23,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && git config --system --add safe.directory '*' \
     && sudo mv /go "/home/$USER" \
     && sudo chown -R "${USER}:${USER}" "${GOPATH}" \
-    && sudo chmod -R 644 "${GOPATH}"
+    && sudo chmod -R 775 "${GOPATH}"
 
 FROM base AS final
 
