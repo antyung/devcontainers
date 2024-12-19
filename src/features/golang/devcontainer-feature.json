@@ -1,0 +1,22 @@
+{
+  "id": "golang",
+  "version": "1.0.0",
+  "name": "golang",
+  "description": "",
+  "documentationURL": "https://github.com/antyung/devcontainers/blob/main/src/features/golang/README.md",
+  "licenseURL": "https://github.com/antyung/devcontainers/blob/main/LICENSE",
+  "containerEnv": {
+    "GOROOT": "/usr/local/go",
+    "PATH": "/usr/local/go/bin:${PATH}"
+  },
+  "options": {
+    "version": {
+        "type": "string",
+        "proposals": [
+            "1.22.10"
+        ],
+        "default": "1.22.10",
+        "description": "Select or enter an Golang version."
+    }
+  }
+}

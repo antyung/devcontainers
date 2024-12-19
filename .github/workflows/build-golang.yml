@@ -1,16 +1,16 @@
 ---
-name: 'build ubuntu'
+name: 'build golang'
 
 on:
   push:
     branches:
       - main
     paths:
-      - 'src/images/ubuntu/**'
+      - 'src/images/golang/**'
   workflow_dispatch:
 
 env:
-  IMAGE: ubuntu
+  IMAGE: golang
   GH_TOKEN: ${{secrets.GH_TOKEN}}
 
 permissions:

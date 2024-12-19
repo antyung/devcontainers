@@ -1,0 +1,19 @@
+{
+  "name": "golang-base",
+  "dockerComposeFile": ["./compose.yml"],
+  "service": "devcontainer-golang-base",
+  "remoteUser": "vscode",
+  "shutdownAction": "stopCompose",
+  "workspaceFolder": "/home/vscode/golang-base",
+  "containerEnv": {
+    "GOROOT": "/usr/local/go",
+    "GOPATH": "/home/vscode/go",
+    "PATH": "/usr/local/go/bin:/home/vscode/go/bin:${PATH}"
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {"terminal.integrated.defaultProfile.linux": "bash"},
+    "extensions": []
+    }
+  }
+}

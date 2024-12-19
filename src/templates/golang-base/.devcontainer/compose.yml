@@ -1,0 +1,10 @@
+---
+services:
+  devcontainer-golang-base:
+    container_name: devcontainer-golang-base
+    build:
+      context: .
+    volumes:
+      - ..:/home/vscode/golang-base:cached
+    user: vscode
+    tty: true
