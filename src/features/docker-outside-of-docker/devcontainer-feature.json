@@ -1,9 +1,9 @@
 {
-  "id": "docker-in-docker",
-  "version": "1.2.1",
-  "name": "docker-in-docker",
+  "id": "docker-outside-of-docker",
+  "version": "1.0.0",
+  "name": "docker-outside-of-docker",
   "description": "",
-  "documentationURL": "https://github.com/antyung/devcontainers/blob/main/src/features/docker-in-docker/README.md",
+  "documentationURL": "https://github.com/antyung/devcontainers/blob/main/src/features/docker-outside-of-docker/README.md",
   "licenseURL": "https://github.com/antyung/devcontainers/blob/main/LICENSE",
   "entrypoint": "/usr/local/share/docker-init.sh",
   "privileged": true,
@@ -12,9 +12,9 @@
   },
   "mounts": [
     {
-      "source": "dind-var-lib-docker-${devcontainerId}",
-      "target": "/var/lib/docker",
-      "type": "volume"
+      "source": "/var/run/docker.sock",
+      "target": "/var/run/docker-host.sock",
+      "type": "bind"
     }
   ],
   "installsAfter": [
