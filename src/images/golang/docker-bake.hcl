@@ -30,13 +30,13 @@ target "test" {
     "linux/amd64",
     "linux/arm64",
   ]
-  DOCKER_TAGs = []
+  tags = []
 }
 
 target "build" {
   inherits = ["settings"]
   output   = ["type=docker"]
-  DOCKER_TAGs = [
+  tags = [
     "ghcr.io/${GITHUB_USERNAME}/devcontainers/${IMAGE}:latest",
     "ghcr.io/${GITHUB_USERNAME}/devcontainers/${IMAGE}:${DOCKER_TAG}",
   ]
@@ -49,7 +49,7 @@ target "push" {
     "linux/amd64",
     "linux/arm64",
   ]
-  DOCKER_TAGs = [
+  tags = [
     "ghcr.io/${GITHUB_USERNAME}/devcontainers/${IMAGE}:latest",
     "ghcr.io/${GITHUB_USERNAME}/devcontainers/${IMAGE}:${DOCKER_TAG}",
   ]
