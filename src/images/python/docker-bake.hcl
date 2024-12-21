@@ -6,7 +6,7 @@ variable "IMAGE" {
   default = "python"
 }
 
-variable "TAG" {
+variable "DOCKER_TAG" {
   default = "latest"
 }
 
@@ -30,15 +30,15 @@ target "test" {
     "linux/amd64",
     "linux/arm64",
   ]
-  tags = []
+  DOCKER_TAGs = []
 }
 
 target "build" {
   inherits = ["settings"]
   output   = ["type=docker"]
-  tags = [
+  DOCKER_TAGs = [
     "ghcr.io/${GITHUB_USERNAME}/devcontainers/${IMAGE}:latest",
-    "ghcr.io/${GITHUB_USERNAME}/devcontainers/${IMAGE}:${TAG}",
+    "ghcr.io/${GITHUB_USERNAME}/devcontainers/${IMAGE}:${DOCKER_TAG}",
   ]
 }
 
@@ -49,8 +49,8 @@ target "push" {
     "linux/amd64",
     "linux/arm64",
   ]
-  tags = [
+  DOCKER_TAGs = [
     "ghcr.io/${GITHUB_USERNAME}/devcontainers/${IMAGE}:latest",
-    "ghcr.io/${GITHUB_USERNAME}/devcontainers/${IMAGE}:${TAG}",
+    "ghcr.io/${GITHUB_USERNAME}/devcontainers/${IMAGE}:${DOCKER_TAG}",
   ]
 }
