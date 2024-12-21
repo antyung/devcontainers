@@ -13,6 +13,12 @@
 
 
 
+## Customizations
+
+### VS Code Extensions
+
+- `ms-azuretools.vscode-docker`
+
 
 
 ---
