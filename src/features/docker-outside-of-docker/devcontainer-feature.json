@@ -1,6 +1,6 @@
 {
   "id": "docker-outside-of-docker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "docker-outside-of-docker",
   "description": "",
   "documentationURL": "https://github.com/antyung/devcontainers/blob/main/src/features/docker-outside-of-docker/README.md",
@@ -13,7 +13,7 @@
   "mounts": [
     {
       "source": "/var/run/docker.sock",
-      "target": "/var/run/docker-host.sock",
+      "target": "/var/run/docker.sock",
       "type": "bind"
     }
   ],
