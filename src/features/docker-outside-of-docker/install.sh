@@ -10,7 +10,7 @@ TARGET_SOCKET="${TARGET_SOCKET:-"/var/run/docker.sock"}"
 function install_apt_ubuntu() {
     $(which sudo) apt-get update
     export DEBIAN_FRONTEND=noninteractive
-    $(which sudo) apt-get install -y --no-install-recommends sudo ca-certificates curl
+    $(which sudo) apt-get install -y --no-install-recommends sudo ca-certificates curl socat
     sudo install -m 0755 -d /etc/apt/keyrings
     sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
     sudo chmod a+r /etc/apt/keyrings/docker.asc
