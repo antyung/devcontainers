@@ -3,6 +3,7 @@
 set -o errexit -o pipefail
 
 USERNAME="${USERNAME:-"${_REMOTE_USER:-"vscode"}"}"
+ENABLE_NONROOT_DOCKER="${ENABLE_NONROOT_DOCKER:-"true"}"
 SOURCE_SOCKET="${SOURCE_SOCKET:-"/var/run/docker-host.sock"}"
 TARGET_SOCKET="${TARGET_SOCKET:-"/var/run/docker.sock"}"
 
@@ -37,6 +38,7 @@ function install_apt_debian() {
 }
 
 function setup_docker_init() {
+    sudo usermod -aG docker "${USERNAME}"
     # Setup a docker group in the event the docker socket's group is not root
     if ! grep -qE '^docker:' /etc/group; then
         echo "(*) Creating missing docker group..."
@@ -47,6 +49,7 @@ function setup_docker_init() {
         touch "${SOURCE_SOCKET}"
         ln -s "${SOURCE_SOCKET}" "${TARGET_SOCKET}"
     fi
+    DOCKER_GID="$(grep -oP '^docker:x:\K[^:]+' /etc/group)"
     # If enabling non-root access and specified user is found, setup socat and add script
     chown -h "${USERNAME}":root "${TARGET_SOCKET}"
     cat << 'EOF' > /usr/local/share/docker-init.sh
@@ -105,7 +108,6 @@ exec "\$@"
 EOF
     sudo chmod +x /usr/local/share/docker-init.sh
     sudo chown "${USERNAME}":root /usr/local/share/docker-init.sh
-    sudo usermod -aG docker "${USERNAME}"
 }
 
 main() {
