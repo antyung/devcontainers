@@ -3,14 +3,11 @@
 set -o errexit -o pipefail
 
 USERNAME="${USERNAME:-"${_REMOTE_USER:-"vscode"}"}"
-ENABLE_NONROOT_DOCKER="${ENABLE_NONROOT_DOCKER:-"true"}"
-SOURCE_SOCKET="${SOURCE_SOCKET:-"/var/run/docker-host.sock"}"
-TARGET_SOCKET="${TARGET_SOCKET:-"/var/run/docker.sock"}"
 
 function install_apt_ubuntu() {
     $(which sudo) apt-get update
     export DEBIAN_FRONTEND=noninteractive
-    $(which sudo) apt-get install -y --no-install-recommends sudo ca-certificates curl socat
+    $(which sudo) apt-get install -y --no-install-recommends sudo ca-certificates curl
     sudo install -m 0755 -d /etc/apt/keyrings
     sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
     sudo chmod a+r /etc/apt/keyrings/docker.asc
@@ -35,79 +32,7 @@ function install_apt_debian() {
     sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
     sudo apt-get update
     sudo apt-get install -y --no-install-recommends docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-}
-
-function setup_docker_init() {
     sudo usermod -aG docker "${USERNAME}"
-    # Setup a docker group in the event the docker socket's group is not root
-    if ! grep -qE '^docker:' /etc/group; then
-        echo "(*) Creating missing docker group..."
-        groupadd --system docker
-    fi
-    # By default, make the source and target sockets the same
-    if [ "${SOURCE_SOCKET}" != "${TARGET_SOCKET}" ]; then
-        touch "${SOURCE_SOCKET}"
-        ln -s "${SOURCE_SOCKET}" "${TARGET_SOCKET}"
-    fi
-    DOCKER_GID="$(grep -oP '^docker:x:\K[^:]+' /etc/group)"
-    # If enabling non-root access and specified user is found, setup socat and add script
-    chown -h "${USERNAME}":root "${TARGET_SOCKET}"
-    cat << 'EOF' > /usr/local/share/docker-init.sh
-#!/usr/bin/env bash
-
-set -e
-
-SOCAT_PATH_BASE=/tmp/vscr-docker-from-docker
-SOCAT_LOG=\${SOCAT_PATH_BASE}.log
-SOCAT_PID=\${SOCAT_PATH_BASE}.pid
-
-# Wrapper function to only use sudo if not already root
-sudoIf()
-{
-    if [ "\$(id -u)" -ne 0 ]; then
-        sudo "\$@"
-    else
-        "\$@"
-    fi
-}
-
-# Log messages
-log()
-{
-    echo -e "[\$(date)] \$@" | sudoIf tee -a \${SOCAT_LOG} > /dev/null
-}
-
-echo -e "\n** \$(date) **" | sudoIf tee -a \${SOCAT_LOG} > /dev/null
-log "Ensuring ${USERNAME} has access to ${SOURCE_SOCKET} via ${TARGET_SOCKET}"
-
-# If enabled, try to update the docker group with the right GID. If the group is root,
-# fall back on using socat to forward the docker socket to another unix socket so
-# that we can set permissions on it without affecting the host.
-if [ "${ENABLE_NONROOT_DOCKER}" = "true" ] && [ "${SOURCE_SOCKET}" != "${TARGET_SOCKET}" ] && [ "${USERNAME}" != "root" ] && [ "${USERNAME}" != "0" ]; then
-    SOCKET_GID=\$(stat -c '%g' ${SOURCE_SOCKET})
-    if [ "\${SOCKET_GID}" != "0" ] && [ "\${SOCKET_GID}" != "${DOCKER_GID}" ] && ! grep -E ".+:x:\${SOCKET_GID}" /etc/group; then
-        sudoIf groupmod --gid "\${SOCKET_GID}" docker
-    else
-        # Enable proxy if not already running
-        if [ ! -f "\${SOCAT_PID}" ] || ! ps -p \$(cat \${SOCAT_PID}) > /dev/null; then
-            log "Enabling socket proxy."
-            log "Proxying ${SOURCE_SOCKET} to ${TARGET_SOCKET} for vscode"
-            sudoIf rm -rf ${TARGET_SOCKET}
-            (sudoIf socat UNIX-LISTEN:${TARGET_SOCKET},fork,mode=660,user=${USERNAME},backlog=128 UNIX-CONNECT:${SOURCE_SOCKET} 2>&1 | sudoIf tee -a \${SOCAT_LOG} > /dev/null & echo "\$!" | sudoIf tee \${SOCAT_PID} > /dev/null)
-        else
-            log "Socket proxy already running."
-        fi
-    fi
-    log "Success"
-fi
-
-# Execute whatever commands were passed in (if any). This allows us
-# to set this script to ENTRYPOINT while still executing the default CMD.
-set +e
-exec "\$@"
-EOF
-    sudo chmod +x /usr/local/share/docker-init.sh
-    sudo chown "${USERNAME}":root /usr/local/share/docker-init.sh
 }
 
 main() {
@@ -119,7 +44,6 @@ main() {
         echo "Unsupported OS. Exiting."
         exit 1
     fi
-    setup_docker_init
 }
 
 main
