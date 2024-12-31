@@ -18,6 +18,7 @@ function install_apt_ubuntu() {
     sudo apt-get update
     sudo apt-get install -y --no-install-recommends docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
     sudo usermod -aG docker "${USERNAME}"
+    sudo chown root:docker /var/run/docker.sock
 }
 
 function install_apt_debian() {
@@ -34,6 +35,7 @@ function install_apt_debian() {
     sudo apt-get update
     sudo apt-get install -y --no-install-recommends docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
     sudo usermod -aG docker "${USERNAME}"
+    sudo chown root:docker /var/run/docker.sock
 }
 
 main() {
