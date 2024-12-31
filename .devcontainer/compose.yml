@@ -4,6 +4,7 @@ services:
     container_name: devcontainer-devcontainers
     build:
       context: .
+    restart: unless-stopped
     volumes:
       - ..:/home/vscode/devcontainers:cached
     user: vscode
