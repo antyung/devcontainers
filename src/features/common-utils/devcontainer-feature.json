@@ -1,6 +1,6 @@
 {
   "id": "common-utils",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "name": "common-utils",
   "description": "",
   "documentationURL": "https://github.com/antyung/devcontainers/blob/main/src/features/common-utils/README.md",

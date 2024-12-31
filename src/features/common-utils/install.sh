@@ -67,6 +67,7 @@ function setup_files() {
     if type zsh > /dev/null 2>&1; then
         git clone "https://github.com/zsh-users/zsh-autosuggestions" "${HOME}/.zsh/zsh-autosuggestions"
         git clone "https://github.com/zsh-users/zsh-syntax-highlighting.git" "${HOME}/.zsh/zsh-syntax-highlighting"
+        chown -R "${USERNAME}:${USERNAME}" "${HOME}/.zsh"
         cat "${FEATURE_DIR}/files/.zshrc" >> "${HOME}/.zshrc"
         chown "${USERNAME}:${USERNAME}" "${HOME}/.zshrc"
         chmod 644 "${HOME}/.zshrc"
@@ -77,6 +78,7 @@ function setup_files() {
 
     if type ssh > /dev/null 2>&1; then
         mkdir -p "${HOME}/.ssh"
+        chown "${USERNAME}:${USERNAME}" "${HOME}/.ssh"
         cat "${FEATURE_DIR}/files/config" >> "${HOME}/.ssh/config"
         chown "${USERNAME}:${USERNAME}" "${HOME}/.ssh/config"
         chmod 644 "${HOME}/.ssh/config"
@@ -84,6 +86,7 @@ function setup_files() {
 
     mkdir -p "${HOME}/.vscode"
     cat "${FEATURE_DIR}/files/.vscode/settings.json" >> "${HOME}/.vscode/settings.json"
+    chown -R "${USERNAME}:${USERNAME}" "${HOME}/.vscode"
 }
 
 function main() {
