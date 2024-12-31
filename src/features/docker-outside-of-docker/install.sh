@@ -20,7 +20,7 @@ function install_apt_ubuntu() {
     sudo usermod -aG docker "${USERNAME}"
     sudo touch /var/run/docker.sock
     sudo ln -s /var/run/docker.sock /var/run/docker-host.sock
-    sudo chown root:docker /var/run/docker-host.sock
+    sudo chown -h root:docker /var/run/docker-host.sock
 }
 
 function install_apt_debian() {
@@ -39,7 +39,7 @@ function install_apt_debian() {
     sudo usermod -aG docker "${USERNAME}"
     sudo touch /var/run/docker.sock
     sudo ln -s /var/run/docker.sock /var/run/docker-host.sock
-    sudo chown root:docker /var/run/docker-host.sock
+    sudo chown -h root:docker /var/run/docker-host.sock
 }
 
 main() {
