@@ -3,6 +3,8 @@
 set -o errexit -o pipefail
 
 USERNAME="${USERNAME:-"${_REMOTE_USER:-"vscode"}"}"
+SOURCE_SOCKET="${SOURCE_SOCKET:-"/var/run/docker.sock"}"
+TARGET_SOCKET="${TARGET_SOCKET:-"/var/run/docker.sock"}"
 
 function install_apt_ubuntu() {
     $(which sudo) apt-get update
@@ -35,6 +37,18 @@ function install_apt_debian() {
 }
 
 function setup_docker_init() {
+    # Setup a docker group in the event the docker socket's group is not root
+    if ! grep -qE '^docker:' /etc/group; then
+        echo "(*) Creating missing docker group..."
+        groupadd --system docker
+    fi
+    # By default, make the source and target sockets the same
+    if [ "${SOURCE_SOCKET}" != "${TARGET_SOCKET}" ]; then
+        touch "${SOURCE_SOCKET}"
+        ln -s "${SOURCE_SOCKET}" "${TARGET_SOCKET}"
+    fi
+    # If enabling non-root access and specified user is found, setup socat and add script
+    chown -h "${USERNAME}":root "${TARGET_SOCKET}"
     cat << 'EOF' > /usr/local/share/docker-init.sh
 #!/usr/bin/env bash
 
