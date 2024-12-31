@@ -3,7 +3,7 @@
 set -o errexit -o pipefail
 
 USERNAME="${USERNAME:-"${_REMOTE_USER:-"vscode"}"}"
-SOURCE_SOCKET="${SOURCE_SOCKET:-"/var/run/docker.sock"}"
+SOURCE_SOCKET="${SOURCE_SOCKET:-"/var/run/docker-host.sock"}"
 TARGET_SOCKET="${TARGET_SOCKET:-"/var/run/docker.sock"}"
 
 function install_apt_ubuntu() {
