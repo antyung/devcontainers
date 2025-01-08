@@ -24,8 +24,7 @@ function install_node() {
     mv /tmp/node-v${VERSION}-${ARCH}/bin/* /usr/local/bin
     mv /tmp/node-v${VERSION}-${ARCH}/lib/* /usr/local/lib
     rm -rf "/tmp/node-v${VERSION}-${ARCH}" "/tmp/node-v${VERSION}-${ARCH}.tar.xz"
-    corepack enable
-    corepack prepare pnpm@latest --activate
+    npm install -g pnpm typescript
 }
 
 function main() {
