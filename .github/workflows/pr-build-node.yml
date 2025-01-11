@@ -22,7 +22,7 @@ permissions:
 
 jobs:
   build:
-    runs-on: node-latest
+    runs-on: ubuntu-latest
     if: ${{github.actor == 'dependabot[bot]'}}
     steps:
       - name: 'checkout'
