@@ -8,12 +8,6 @@ registries:
     username: ${{secrets.DOCKERHUB_USERNAME}}
     password: ${{secrets.DOCKERHUB_PASSWORD}}
 
-  github-registry:
-    type: docker-registry
-    url: https://ghcr.io
-    username: ${{github.actor}}
-    password: ${{secrets.GH_TOKEN}}
-
 updates:
   - package-ecosystem: github-actions
     directory: "/"
@@ -30,23 +24,14 @@ updates:
     commit-message:
       prefix: "chore"
       include: "scope"
-    registries: ["github-registry"]
-
-  - package-ecosystem: docker
-    directory: "/.devcontainer"
-    schedule:
-      interval: weekly
-    commit-message:
-      prefix: "chore"
-      include: "scope"
-    registries: ["github-registry"]
 
   - package-ecosystem: docker
     directories:
-      - "/src/images/debian"
-      - "/src/images/node"
-      - "/src/images/python"
-      - "/src/images/ubuntu"
+      - "/src/images/debian/**"
+      - "/src/images/golang/**"
+      - "/src/images/node/**"
+      - "/src/images/python/**"
+      - "/src/images/ubuntu/**"
     schedule:
       interval: daily
     commit-message:
