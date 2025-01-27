@@ -2,9 +2,9 @@
 
 set -o errexit -o pipefail
 
-USERNAME="${USERNAME:-"${_REMOTE_USER:-"vscode"}"}"
-HOME="/home/${USERNAME}"
-FEATURE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+readonly USERNAME="${USERNAME:-"${_REMOTE_USER:-"vscode"}"}"
+readonly HOME="/home/${USERNAME}"
+readonly FEATURE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 function install_apt() {
     ARCH="$(uname -m)"

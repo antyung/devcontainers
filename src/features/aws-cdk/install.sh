@@ -8,7 +8,6 @@ function install_apt() {
     $(which sudo) apt-get install -y --no-install-recommends sudo g++
 }
 
-
 function install_awscdk() {
     pnpm install -g aws-cdk@latest
 }

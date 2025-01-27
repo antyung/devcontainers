@@ -2,7 +2,7 @@
 
 set -o errexit -o pipefail
 
-FEATURE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+readonly FEATURE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 function install_apt() {
     $(which sudo) apt-get update

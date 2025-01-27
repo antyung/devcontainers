@@ -1,6 +1,6 @@
 {
   "id": "aws-sam-cli",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "name": "aws-sam-cli",
   "description": "",
   "documentationURL": "https://github.com/antyung/devcontainers/blob/main/src/features/aws-sam-cli/README.md",

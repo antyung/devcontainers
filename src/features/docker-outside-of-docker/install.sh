@@ -2,7 +2,7 @@
 
 set -o errexit -o pipefail
 
-USERNAME="${USERNAME:-"${_REMOTE_USER:-"vscode"}"}"
+readonly USERNAME="${USERNAME:-"${_REMOTE_USER:-"vscode"}"}"
 
 function install_apt_ubuntu() {
     $(which sudo) apt-get update

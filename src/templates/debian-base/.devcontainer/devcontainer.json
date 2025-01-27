@@ -1,16 +1,13 @@
 {
+  "image": "ghcr.io/antyung/devcontainers/debian:bullseye",
   "name": "debian-base",
-  "dockerComposeFile": ["./compose.yml"],
-  "service": "devcontainer-debian-base",
-  "remoteUser": "vscode",
-  "shutdownAction": "stopCompose",
-  "workspaceFolder": "/home/vscode/debian-base",
   "customizations": {
     "vscode": {
-      "settings": {
-        "terminal.integrated.defaultProfile.linux": "bash"
-      },
+      "settings": { "terminal.integrated.defaultProfile.linux": "zsh" },
     "extensions": []
     }
-  }
+  },
+  "containerUser": "vscode",
+  "workspaceMount": "source=${localWorkspaceFolder}/,target=/home/vscode/debian-base,type=bind,consistency=cached", "workspaceFolder": "/home/vscode",
+  "postCreateCommand": "sudo chown -R vscode:vscode /home/vscode/debian-base"
 }

@@ -1,6 +1,6 @@
 {
   "id": "aws-cdk",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "name": "aws-cdk",
   "description": "",
   "documentationURL": "https://github.com/antyung/devcontainers/blob/main/src/features/aws-cdk/README.md",

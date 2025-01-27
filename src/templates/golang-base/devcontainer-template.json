@@ -1,6 +1,6 @@
 {
   "id": "golang-base",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "name": "golang-base",
   "description": "",
   "documentationURL": "https://github.com/antyung/devcontainers/blob/main/src/templates/golang-base/README.md",

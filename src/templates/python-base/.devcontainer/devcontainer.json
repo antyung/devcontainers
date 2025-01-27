@@ -1,16 +1,13 @@
 {
+  "image": "ghcr.io/antyung/devcontainers/python:3.13.0-bullseye",
   "name": "python-base",
-  "dockerComposeFile": ["./compose.yml"],
-  "service": "devcontainer-python-base",
-  "remoteUser": "vscode",
-  "shutdownAction": "stopCompose",
-  "workspaceFolder": "/home/vscode/python-base",
   "customizations": {
     "vscode": {
-      "settings": {
-        "terminal.integrated.defaultProfile.linux": "bash"
-      },
+      "settings": { "terminal.integrated.defaultProfile.linux": "zsh" },
     "extensions": []
     }
-  }
+  },
+  "containerUser": "vscode",
+  "workspaceMount": "source=${localWorkspaceFolder}/,target=/home/vscode/python-base,type=bind,consistency=cached", "workspaceFolder": "/home/vscode",
+  "postCreateCommand": "sudo chown -R vscode:vscode /home/vscode/python-base"
 }

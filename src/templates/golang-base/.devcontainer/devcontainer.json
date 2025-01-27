@@ -1,19 +1,13 @@
 {
+  "image": "ghcr.io/antyung/devcontainers/golang:1.22-bookworm",
   "name": "golang-base",
-  "dockerComposeFile": ["./compose.yml"],
-  "service": "devcontainer-golang-base",
-  "remoteUser": "vscode",
-  "shutdownAction": "stopCompose",
-  "workspaceFolder": "/home/vscode/golang-base",
-  "containerEnv": {
-    "GOROOT": "/usr/local/go",
-    "GOPATH": "/home/vscode/go",
-    "PATH": "/usr/local/go/bin:/home/vscode/go/bin:${PATH}"
-  },
   "customizations": {
     "vscode": {
-      "settings": {"terminal.integrated.defaultProfile.linux": "bash"},
+      "settings": { "terminal.integrated.defaultProfile.linux": "zsh" },
     "extensions": []
     }
-  }
+  },
+  "containerUser": "vscode",
+  "workspaceMount": "source=${localWorkspaceFolder}/,target=/home/vscode/golang-base,type=bind,consistency=cached", "workspaceFolder": "/home/vscode",
+  "postCreateCommand": "sudo chown -R vscode:vscode /home/vscode/golang-base"
 }

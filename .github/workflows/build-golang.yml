@@ -41,7 +41,7 @@ jobs:
       - name: 'extract version from dockerfile'
         id: extract_version
         run: |
-          DOCKER_TAG=$(sed -n 's/^FROM .*:\([^ ]*\)\s*.*/\1/p' ./src/images/${{env.IMAGE}}/Dockerfile)
+          DOCKER_TAG=$(sed -n 's/^FROM .*:\([^ ]*\)\s*.*/\1/p' ./src/images/${{env.IMAGE}}/Dockerfile.debian)
           echo "DOCKER_TAG=${DOCKER_TAG#v}" >> $GITHUB_ENV
           echo "DOCKER_TAG=${DOCKER_TAG#v}"
 
