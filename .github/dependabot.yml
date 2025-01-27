@@ -22,7 +22,7 @@ updates:
     schedule:
       interval: weekly
     commit-message:
-      prefix: "chore"
+      prefix: "build"
       include: "scope"
 
   - package-ecosystem: docker
@@ -35,6 +35,6 @@ updates:
     schedule:
       interval: daily
     commit-message:
-      prefix: "chore"
+      prefix: "build"
       include: "scope"
     registries: ["dockerhub-registry"]
