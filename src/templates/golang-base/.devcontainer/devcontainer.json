@@ -1,5 +1,5 @@
 {
-  "image": "ghcr.io/antyung/devcontainers/golang:1.22-bookworm",
+  "image": "ghcr.io/antyung/devcontainers/golang:1.23.5-bookworm",
   "name": "golang-base",
   "customizations": {
     "vscode": {
