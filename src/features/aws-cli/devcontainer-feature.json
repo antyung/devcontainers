@@ -1,11 +1,8 @@
 {
   "id": "aws-cli",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "name": "aws-cli",
   "description": "",
   "documentationURL": "https://github.com/antyung/devcontainers/blob/main/src/features/aws-cli/README.md",
-  "licenseURL": "https://github.com/antyung/devcontainers/blob/main/LICENSE",
-  "installsAfter": [
-    "ghcr.io/antyung/devcontainers/common-utils:latest"
-  ]
+  "licenseURL": "https://github.com/antyung/devcontainers/blob/main/LICENSE"
 }

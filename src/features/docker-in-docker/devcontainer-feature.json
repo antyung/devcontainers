@@ -1,6 +1,6 @@
 {
   "id": "docker-in-docker",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "name": "docker-in-docker",
   "description": "",
   "documentationURL": "https://github.com/antyung/devcontainers/blob/main/src/features/docker-in-docker/README.md",
@@ -16,9 +16,6 @@
       "target": "/var/lib/docker",
       "type": "volume"
     }
-  ],
-  "installsAfter": [
-    "ghcr.io/antyung/devcontainers/common-utils:latest"
   ],
   "customizations": {
     "vscode": {
