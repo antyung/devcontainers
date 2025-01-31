@@ -1,5 +1,5 @@
 ---
-name: 'build node-base'
+name: 'Build node-base'
 
 on:
   push:
