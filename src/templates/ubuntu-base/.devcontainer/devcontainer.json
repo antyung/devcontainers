@@ -1,13 +1,4 @@
 {
-  "image": "ghcr.io/antyung/devcontainers/ubuntu:jammy",
-  "name": "ubuntu-base",
-  "customizations": {
-    "vscode": {
-      "settings": { "terminal.integrated.defaultProfile.linux": "zsh" },
-    "extensions": []
-    }
-  },
-  "containerUser": "vscode",
-  "workspaceMount": "source=${localWorkspaceFolder}/,target=/home/vscode/ubuntu-base,type=bind,consistency=cached", "workspaceFolder": "/home/vscode",
-  "postCreateCommand": "sudo chown -R vscode:vscode /home/vscode/ubuntu-base"
+  "image": "public.ecr.aws/w2u0w5i6/devcontainer/ubuntu-base:jammy",
+  "name": "ubuntu-base"
 }

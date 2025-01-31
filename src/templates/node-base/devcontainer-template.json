@@ -1,6 +1,6 @@
 {
   "id": "node-base",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "name": "node-base",
   "description": "",
   "documentationURL": "https://github.com/antyung/devcontainers/blob/main/src/templates/node-base/README.md",

@@ -1,13 +1,4 @@
 {
-  "image": "ghcr.io/antyung/devcontainers/debian:bullseye",
-  "name": "debian-base",
-  "customizations": {
-    "vscode": {
-      "settings": { "terminal.integrated.defaultProfile.linux": "zsh" },
-    "extensions": []
-    }
-  },
-  "containerUser": "vscode",
-  "workspaceMount": "source=${localWorkspaceFolder}/,target=/home/vscode/debian-base,type=bind,consistency=cached", "workspaceFolder": "/home/vscode",
-  "postCreateCommand": "sudo chown -R vscode:vscode /home/vscode/debian-base"
+  "image": "public.ecr.aws/w2u0w5i6/devcontainer/debian-base:bullseye",
+  "name": "debian-base"
 }

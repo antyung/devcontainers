@@ -1,13 +1,4 @@
 {
-  "image": "ghcr.io/antyung/devcontainers/golang:1.23.5-bookworm",
-  "name": "golang-base",
-  "customizations": {
-    "vscode": {
-      "settings": { "terminal.integrated.defaultProfile.linux": "zsh" },
-    "extensions": []
-    }
-  },
-  "containerUser": "vscode",
-  "workspaceMount": "source=${localWorkspaceFolder}/,target=/home/vscode/golang-base,type=bind,consistency=cached", "workspaceFolder": "/home/vscode",
-  "postCreateCommand": "sudo chown -R vscode:vscode /home/vscode/golang-base"
+  "image": "public.ecr.aws/w2u0w5i6/devcontainer/golang-base:1.23.5-bookworm",
+  "name": "golang-base"
 }

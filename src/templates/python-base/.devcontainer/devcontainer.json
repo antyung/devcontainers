@@ -1,13 +1,4 @@
 {
-  "image": "ghcr.io/antyung/devcontainers/python:3.13.0-bullseye",
-  "name": "python-base",
-  "customizations": {
-    "vscode": {
-      "settings": { "terminal.integrated.defaultProfile.linux": "zsh" },
-    "extensions": []
-    }
-  },
-  "containerUser": "vscode",
-  "workspaceMount": "source=${localWorkspaceFolder}/,target=/home/vscode/python-base,type=bind,consistency=cached", "workspaceFolder": "/home/vscode",
-  "postCreateCommand": "sudo chown -R vscode:vscode /home/vscode/python-base"
+  "image": "public.ecr.aws/w2u0w5i6/devcontainer/python-base:3.13.0-bullseye",
+  "name": "python-base"
 }
