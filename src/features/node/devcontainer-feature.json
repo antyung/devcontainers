@@ -1,10 +1,9 @@
 {
   "id": "node",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "node",
   "description": "",
   "documentationURL": "https://github.com/antyung/devcontainers/blob/main/src/features/node/README.md",
-  "licenseURL": "https://github.com/antyung/devcontainers/blob/main/LICENSE",
   "containerEnv": {
     "PNPM_HOME": "/opt/pnpm",
     "PATH": "/opt/pnpm:${PATH}"

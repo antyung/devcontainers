@@ -1,10 +1,9 @@
 {
   "id": "docker-in-docker",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "name": "docker-in-docker",
   "description": "",
   "documentationURL": "https://github.com/antyung/devcontainers/blob/main/src/features/docker-in-docker/README.md",
-  "licenseURL": "https://github.com/antyung/devcontainers/blob/main/LICENSE",
   "entrypoint": "/usr/local/share/docker-init.sh",
   "privileged": true,
    "containerEnv": {

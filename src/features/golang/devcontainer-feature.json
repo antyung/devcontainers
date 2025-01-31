@@ -1,10 +1,9 @@
 {
   "id": "golang",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "golang",
   "description": "",
   "documentationURL": "https://github.com/antyung/devcontainers/blob/main/src/features/golang/README.md",
-  "licenseURL": "https://github.com/antyung/devcontainers/blob/main/LICENSE",
   "containerEnv": {
     "GOROOT": "/usr/local/go",
     "PATH": "/usr/local/go/bin:${PATH}"
