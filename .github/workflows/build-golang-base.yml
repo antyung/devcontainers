@@ -12,7 +12,8 @@ on:
 
 env:
   DOCKER_IMAGE: golang-base
-  AWS_DEFAULT_REGION: ${{secrets.AWS_DEFAULT_REGION}}
+  DOCKER_IMAGE_GROUP: devcontainer
+  AWS_DEFAULT_REGION: us-east-1
   AWS_OIDC_ROLE_ARN: ${{secrets.AWS_OIDC_ROLE_ARN}}
 
 permissions:
@@ -56,6 +57,10 @@ jobs:
           DOCKER_IMAGE_OS=$(sed -n 's/^FROM .*:\([^ -]*\)-\([^ -]*\).*/\2/p' ./src/images/${{env.DOCKER_IMAGE}}/Dockerfile.debian)
           echo "DOCKER_IMAGE_OS=${DOCKER_IMAGE_OS}" >> $GITHUB_ENV
           echo "DOCKER_IMAGE_OS=${DOCKER_IMAGE_OS}"
+
+      - name: 'create ecr-public repository'
+        run: |
+          aws ecr-public create-repository --repository-name ${{env.DOCKER_IMAGE_GROUP}}/${{env.DOCKER_IMAGE}} --region ${{env.AWS_DEFAULT_REGION}} || true
 
       - name: 'push'
         uses: docker/bake-action@v5
