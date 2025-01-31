@@ -25,11 +25,11 @@ updates:
 
   - package-ecosystem: docker
     directories:
-      - "/src/images/debian/**"
-      - "/src/images/golang/**"
-      - "/src/images/node/**"
-      - "/src/images/python/**"
-      - "/src/images/ubuntu/**"
+      - "/src/images/debian-base/**"
+      - "/src/images/golang-base/**"
+      - "/src/images/node-base/**"
+      - "/src/images/python-base/**"
+      - "/src/images/ubuntu-base/**"
     schedule:
       interval: daily
     commit-message:

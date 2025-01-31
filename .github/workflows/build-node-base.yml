@@ -1,13 +1,13 @@
 ---
-name: 'Build node-base'
+name: 'build node-base'
 
 on:
   push:
     branches:
       - main
     paths:
-      - './src/images/node-base/Dockerfile.debian'
-      - './src/images/node-base/docker-bake.hcl'
+      - 'src/images/node-base/Dockerfile.debian'
+      - 'src/images/node-base/docker-bake.hcl'
   workflow_dispatch:
 
 env:

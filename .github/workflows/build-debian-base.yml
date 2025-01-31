@@ -6,8 +6,8 @@ on:
     branches:
       - main
     paths:
-      - './src/images/debian-base/Dockerfile.debian'
-      - './src/images/debian-base/docker-bake.hcl'
+      - 'src/images/debian-base/Dockerfile.debian'
+      - 'src/images/debian-base/docker-bake.hcl'
   workflow_dispatch:
 
 env:

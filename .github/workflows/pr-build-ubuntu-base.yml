@@ -6,8 +6,8 @@ on:
     branches:
       - main
     paths:
-      - './src/images/ubuntu-base/Dockerfile.debian'
-      - './src/images/ubuntu-base/docker-bake.hcl'
+      - 'src/images/ubuntu-base/Dockerfile.debian'
+      - 'src/images/ubuntu-base/docker-bake.hcl'
     types:
       - opened
       - synchronize
