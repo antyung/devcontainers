@@ -1,9 +1,10 @@
 {
   "id": "miniconda",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "name": "miniconda",
   "description": "",
   "documentationURL": "https://github.com/antyung/devcontainers/blob/main/src/features/miniconda/README.md",
+  "licenseURL": "https://github.com/antyung/devcontainers/blob/main/LICENSE",
   "containerEnv": {
     "CONDA_DIR": "/opt/miniconda3",
     "CONDA_SCRIPT":"/opt/miniconda3/etc/profile.d/conda.sh",

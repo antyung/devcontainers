@@ -1,7 +1,8 @@
 {
   "id": "common-utils",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "name": "common-utils",
   "description": "",
-  "documentationURL": "https://github.com/antyung/devcontainers/blob/main/src/features/common-utils/README.md"
+  "documentationURL": "https://github.com/antyung/devcontainers/blob/main/src/features/common-utils/README.md",
+  "licenseURL": "https://github.com/antyung/devcontainers/blob/main/LICENSE"
 }
