@@ -1,5 +1,5 @@
 
-# nodejs (nodejs)
+# node (node)
 
 
 
@@ -7,7 +7,7 @@
 
 ```json
 "features": {
-    "ghcr.io/antyung/devcontainers/nodejs:1": {}
+    "ghcr.io/antyung/devcontainers/node:1": {}
 }
 ```
 
@@ -21,4 +21,4 @@
 
 ---
 
-_Note: This file was auto-generated from the [devcontainer-feature.json](https://github.com/antyung/devcontainers/blob/main/src/features/nodejs/devcontainer-feature.json).  Add additional notes to a `NOTES.md`._
+_Note: This file was auto-generated from the [devcontainer-feature.json](https://github.com/antyung/devcontainers/blob/main/src/features/node/devcontainer-feature.json).  Add additional notes to a `NOTES.md`._
