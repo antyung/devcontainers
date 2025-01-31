@@ -4,6 +4,10 @@
 
 This repository provides a customized [.devcontainer](https://code.visualstudio.com/docs/devcontainers/containers) setup, designed for use with [vscode](https://code.visualstudio.com/) and GitHub Codespaces.
 
+The repository is configured to automatically update and rebuild Docker images using Dependabot. Dependabot monitors each Dockerfile and creates pull requests to update them when new versions are available.
+
+[https://gallery.ecr.aws/w2u0w5i6](https://gallery.ecr.aws/w2u0w5i6)
+
 ## Overview
 
 This repository is a rework from the original [devcontainers](https://github.com/devcontainers) project, and it utilizes:
