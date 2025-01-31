@@ -1,5 +1,5 @@
 ---
-name: 'PR Build python-base'
+name: 'PR Test Build python-base'
 
 on:
   pull_request:

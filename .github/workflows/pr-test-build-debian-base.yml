@@ -1,5 +1,5 @@
 ---
-name: 'PR Build debian-base'
+name: 'PR Test Build debian-base'
 
 on:
   pull_request:

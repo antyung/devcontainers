@@ -1,5 +1,5 @@
 ---
-name: 'PR Build golang-base'
+name: 'PR Test Build golang-base'
 
 on:
   pull_request:
