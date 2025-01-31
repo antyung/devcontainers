@@ -4,6 +4,7 @@
   "features": {
       "ghcr.io/antyung/devcontainers/common-utils:1": {},
       "ghcr.io/antyung/devcontainers/docker-in-docker:1": {},
+      "ghcr.io/antyung/devcontainers/golang:1": {},
       "ghcr.io/antyung/devcontainers/devcontainer-cli:1": {}
   },
   "customizations": {
