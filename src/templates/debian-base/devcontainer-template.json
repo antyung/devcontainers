@@ -1,6 +1,6 @@
 {
   "id": "debian-base",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "name": "debian-base",
   "description": "",
   "documentationURL": "https://github.com/antyung/devcontainers/blob/main/src/templates/debian-base/README.md",

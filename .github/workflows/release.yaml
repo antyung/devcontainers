@@ -1,5 +1,5 @@
 ---
-name: 'release devcontainer'
+name: 'Release devcontainers'
 
 on:
   workflow_dispatch:

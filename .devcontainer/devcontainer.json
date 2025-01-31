@@ -14,5 +14,5 @@
   },
   "containerUser": "vscode",
   "workspaceMount": "source=${localWorkspaceFolder}/,target=/home/vscode/devcontainers,type=bind,consistency=cached", "workspaceFolder": "/home/vscode",
-  "postCreateCommand": "sudo chown -R vscode:vscode /home/vscode/devcontainers"
+  "postCreateCommand": "sudo chown -R vscode:vscode /home/vscode"
 }
