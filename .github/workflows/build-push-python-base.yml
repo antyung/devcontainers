@@ -1,5 +1,5 @@
 ---
-name: 'Build python-base'
+name: 'Build Push python-base'
 
 on:
   push:
@@ -62,7 +62,7 @@ jobs:
         run: |
           aws ecr-public create-repository --repository-name ${{env.DOCKER_IMAGE_GROUP}}/${{env.DOCKER_IMAGE}} --region ${{env.AWS_DEFAULT_REGION}} || true
 
-      - name: 'push'
+      - name: 'build-push'
         uses: docker/bake-action@v5
         with:
           targets: push

@@ -1,17 +1,17 @@
 ---
-name: 'Build node-base'
+name: 'Build Push ubuntu-base'
 
 on:
   push:
     branches:
       - main
     paths:
-      - 'src/images/node-base/Dockerfile.debian'
-      - 'src/images/node-base/docker-bake.hcl'
+      - 'src/images/ubuntu-base/Dockerfile.ubuntu'
+      - 'src/images/ubuntu-base/docker-bake.hcl'
   workflow_dispatch:
 
 env:
-  DOCKER_IMAGE: node-base
+  DOCKER_IMAGE: ubuntu-base
   DOCKER_IMAGE_GROUP: devcontainer
   AWS_DEFAULT_REGION: us-east-1
   AWS_OIDC_ROLE_ARN: ${{secrets.AWS_OIDC_ROLE_ARN}}
@@ -51,18 +51,15 @@ jobs:
       - name: 'extract version from dockerfile'
         id: extract_version
         run: |
-          DOCKER_TAG=$(sed -n 's/^FROM .*:\([^ -]*\).*/\1/p' ./src/images/${{env.DOCKER_IMAGE}}/Dockerfile.debian)
+          DOCKER_TAG=$(sed -n 's/^FROM .*:\([^ -]*\).*/\1/p' ./src/images/${{env.DOCKER_IMAGE}}/Dockerfile.ubuntu)
           echo "DOCKER_TAG=${DOCKER_TAG#v}" >> $GITHUB_ENV
           echo "DOCKER_TAG=${DOCKER_TAG#v}"
-          DOCKER_IMAGE_OS=$(sed -n 's/^FROM .*:\([^ -]*\)-\([^ -]*\).*/\2/p' ./src/images/${{env.DOCKER_IMAGE}}/Dockerfile.debian)
-          echo "DOCKER_IMAGE_OS=${DOCKER_IMAGE_OS}" >> $GITHUB_ENV
-          echo "DOCKER_IMAGE_OS=${DOCKER_IMAGE_OS}"
 
       - name: 'create ecr-public repository'
         run: |
           aws ecr-public create-repository --repository-name ${{env.DOCKER_IMAGE_GROUP}}/${{env.DOCKER_IMAGE}} --region ${{env.AWS_DEFAULT_REGION}} || true
 
-      - name: 'push'
+      - name: 'build-push'
         uses: docker/bake-action@v5
         with:
           targets: push
