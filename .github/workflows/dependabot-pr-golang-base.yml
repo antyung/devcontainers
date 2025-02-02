@@ -23,7 +23,7 @@ permissions:
 
 jobs:
   test-build:
-    runs-on: debian-latest
+    runs-on: ubuntu-latest
     if: ${{github.actor == 'dependabot[bot]'}}
     steps:
       - name: 'checkout'

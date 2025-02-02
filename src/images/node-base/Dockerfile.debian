@@ -1,8 +1,6 @@
-# syntax=docker/dockerfile:1
+# syntax=docker.io/docker/dockerfile:1
 
 FROM public.ecr.aws/w2u0w5i6/base/node:23.6.1-bookworm AS base
-
-USER root
 
 ARG USER=vscode
 ARG USER_ID=1001

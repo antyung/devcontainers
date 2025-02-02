@@ -37,6 +37,7 @@ updates:
       - "/src/images/node-base/**"
       - "/src/images/python-base/**"
       - "/src/images/ubuntu-base/**"
+      - "/src/images/ubuntu-dev/**"
     schedule:
       interval: daily
     commit-message:
