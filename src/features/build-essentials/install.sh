@@ -22,7 +22,6 @@ function install() {
 
 function main() {
     install_build_essentials
-    setup_files
 }
 
 main
