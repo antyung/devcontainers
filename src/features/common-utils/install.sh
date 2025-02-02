@@ -6,19 +6,12 @@ readonly USERNAME="${USERNAME:-"${_REMOTE_USER:-"vscode"}"}"
 readonly HOME="/home/${USERNAME}"
 readonly FEATURE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-function install() {
-    $(which sudo) apt-get update
-    export DEBIAN_FRONTEND=noninteractive
-    $(which sudo) apt-get install -y --no-install-recommends "$@"
-}
-
-function install_apt() {
+function install_common_utils() {
     install \
         apt-transport-https \
         apt-utils \
         bash-completion \
         bzip2 \
-        build-essential \
         ca-certificates \
         curl \
         git \
@@ -29,7 +22,6 @@ function install_apt() {
         less \
         lsb-release \
         lsof \
-        make \
         nano \
         net-tools \
         openssh-client \
@@ -45,6 +37,12 @@ function install_apt() {
         xz-utils \
         zip \
         zsh
+}
+
+function install() {
+    $(which sudo) apt-get update
+    export DEBIAN_FRONTEND=noninteractive
+    $(which sudo) apt-get install -y --no-install-recommends "$@"
 }
 
 function setup_files() {
@@ -90,7 +88,7 @@ function setup_files() {
 }
 
 function main() {
-    install_apt
+    install_common_utils
     setup_files
 }
 
