@@ -11,12 +11,12 @@ import (
 
 var UbuntuDev = struct {
 	DOCKER_IMAGE       string
-	DOCKER_TAG         string
+	DOCKER_IMAGE_TAG   string
 	AWS_ECR_URI        string
 	DOCKER_IMAGE_GROUP string
 }{
 	DOCKER_IMAGE:       "ubuntu-dev",
-	DOCKER_TAG:         "latest",
+	DOCKER_IMAGE_TAG:   "latest",
 	AWS_ECR_URI:        "public.ecr.aws/w2u0w5i6",
 	DOCKER_IMAGE_GROUP: "devcontainer",
 }
@@ -42,7 +42,7 @@ func TestContainerPullUbuntuDev(t *testing.T) {
 	ctx := context.Background()
 	container, e := testcontainers.GenericContainer(ctx, testcontainers.GenericContainerRequest{
 		ContainerRequest: testcontainers.ContainerRequest{
-			Image: UbuntuDev.AWS_ECR_URI + "/" + UbuntuDev.DOCKER_IMAGE_GROUP + "/" + UbuntuDev.DOCKER_IMAGE + ":" + UbuntuDev.DOCKER_TAG,
+			Image: UbuntuDev.AWS_ECR_URI + "/" + UbuntuDev.DOCKER_IMAGE_GROUP + "/" + UbuntuDev.DOCKER_IMAGE + ":" + UbuntuDev.DOCKER_IMAGE_TAG,
 		},
 		Started: false,
 	})

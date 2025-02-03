@@ -2,7 +2,7 @@ variable "DOCKER_IMAGE" {
   default = "node-base"
 }
 
-variable "DOCKER_TAG" {
+variable "DOCKER_IMAGE_TAG" {
   default = "latest"
 }
 
@@ -48,7 +48,7 @@ target "build" {
   output = ["type=docker"]
   tags = [
     "${AWS_ECR_URI}/${DOCKER_IMAGE_GROUP}/${DOCKER_IMAGE}:latest",
-    "${AWS_ECR_URI}/${DOCKER_IMAGE_GROUP}/${DOCKER_IMAGE}:${DOCKER_TAG}-${DOCKER_IMAGE_OS}",
+    "${AWS_ECR_URI}/${DOCKER_IMAGE_GROUP}/${DOCKER_IMAGE}:${DOCKER_IMAGE_TAG}-${DOCKER_IMAGE_OS}",
   ]
 }
 
@@ -62,6 +62,6 @@ target "push" {
   ]
   tags = [
     "${AWS_ECR_URI}/${DOCKER_IMAGE_GROUP}/${DOCKER_IMAGE}:latest",
-    "${AWS_ECR_URI}/${DOCKER_IMAGE_GROUP}/${DOCKER_IMAGE}:${DOCKER_TAG}-${DOCKER_IMAGE_OS}",
+    "${AWS_ECR_URI}/${DOCKER_IMAGE_GROUP}/${DOCKER_IMAGE}:${DOCKER_IMAGE_TAG}-${DOCKER_IMAGE_OS}",
   ]
 }
