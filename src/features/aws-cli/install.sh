@@ -1,21 +1,29 @@
 #!/usr/bin/env bash
 
-set -o errexit -o pipefail
+set -exo pipefail
 
 readonly USERNAME="${USERNAME:-"${_REMOTE_USER:-"vscode"}"}"
 readonly HOME="/home/${USERNAME}"
 readonly FEATURE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-function install_apt() {
-    ARCH="$(uname -m)"
-    case ${ARCH} in
-        x86_64) ARCH="x86_64";;
-        aarch64 | armv8*) ARCH="aarch64";;
-        *) echo "(!) Architecture ${ARCH} unsupported"; exit 1 ;;
-    esac
+function install_deps() {
+    install \
+        sudo \
+        wget \
+        software-properties-common \
+        ca-certificates \
+        gpg \
+        gpg-agent \
+        unzip \
+        xz-utils
+}
+
+function install() {
     $(which sudo) apt-get update
     export DEBIAN_FRONTEND=noninteractive
-    $(which sudo) apt-get install -y --no-install-recommends sudo curl ca-certificates gpg gpg-agent unzip
+    $(which sudo) apt-get install -y --no-install-recommends "$@"
+    sudo apt-get clean
+    sudo rm -rf /var/lib/apt/lists/*
 }
 
 function install_aws_cli() {
@@ -42,7 +50,13 @@ function install_aws_cli() {
 }
 
 function main() {
-    install_apt
+    ARCH="$(uname -m)"
+    case ${ARCH} in
+        x86_64) ARCH="x86_64";;
+        aarch64 | armv8*) ARCH="aarch64";;
+        *) echo "(!) Architecture ${ARCH} unsupported"; exit 1 ;;
+    esac
+    install_deps
     install_aws_cli
 }
 

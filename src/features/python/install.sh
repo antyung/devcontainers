@@ -1,13 +1,24 @@
 #!/usr/bin/env bash
 
-set -o errexit -o pipefail
+set -exo pipefail
 
 VERSION=${VERSION:-"3.12.0"}
 
-function install_apt() {
+function install_deps() {
+    install \
+        sudo \
+        wget \
+        software-properties-common \
+        ca-certificates \
+        xz-utils
+}
+
+function install() {
     $(which sudo) apt-get update
     export DEBIAN_FRONTEND=noninteractive
-    $(which sudo) apt-get install -y --no-install-recommends sudo ca-certificates software-properties-common
+    $(which sudo) apt-get install -y --no-install-recommends "$@"
+    sudo apt-get clean
+    sudo rm -rf /var/lib/apt/lists/*
 }
 
 function install_python() {
@@ -18,7 +29,7 @@ function install_python() {
 }
 
 function main() {
-    install_apt
+    install_deps
     install_python
 }
 

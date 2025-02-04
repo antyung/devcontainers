@@ -1,6 +1,6 @@
 {
   "id": "build-essentials",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "name": "build-essentials",
   "description": "",
   "documentationURL": "https://github.com/antyung/devcontainers/blob/main/src/features/build-essentials/README.md",

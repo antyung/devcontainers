@@ -1,6 +1,6 @@
 {
   "id": "node",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "name": "node",
   "description": "",
   "documentationURL": "https://github.com/antyung/devcontainers/blob/main/src/features/node/README.md",

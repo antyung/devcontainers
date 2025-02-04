@@ -1,0 +1,12 @@
+{
+  "id": "user-data",
+  "version": "1.0.0",
+  "name": "user-data",
+  "description": "",
+  "documentationURL": "https://github.com/antyung/devcontainers/blob/main/src/features/user-data/README.md",
+  "licenseURL": "https://github.com/antyung/devcontainers/blob/main/LICENSE",
+  "postCreateCommand": [
+    "sudo chown -R vscode:vscode /home/vscode",
+    "echo 'Done!'"
+  ]
+}

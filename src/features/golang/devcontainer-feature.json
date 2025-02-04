@@ -1,6 +1,6 @@
 {
   "id": "golang",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "name": "golang",
   "description": "",
   "documentationURL": "https://github.com/antyung/devcontainers/blob/main/src/features/golang/README.md",
