@@ -7,7 +7,7 @@
 
 ```json
 "features": {
-    "ghcr.io/antyung/devcontainers/common-utils:1": {}
+    "ghcr.io/antyung/devcontainers/common-utils:2": {}
 }
 ```
 
